@@ -12,7 +12,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(to bottom, #003366, #ffffff); /* Fundo degradê de azul escuro para branco */
+            text-align: center;
         }
 
         .login-container {
@@ -20,7 +21,8 @@
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            width: 100%;
+            max-width: 400px;
         }
 
         h2 {
@@ -58,11 +60,37 @@
             vertical-align: middle;
         }
 
+        /* Logo centralizada */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 200px; /* Ajuste o tamanho conforme necessário */
+        }
+
+        .welcome-text {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="login-container">
+    <!-- Logo centralizada -->
+    <div class="logo-container">
+        <img src="https://www.colegioimperatriz.net.br/img/logo-colegio-imperatriz.png" alt="Logo Colégio Imperatriz">
+    </div>
+
+    <!-- Texto de boas-vindas -->
+    <div class="welcome-text">
+        Bem-vindo ao portal Wifi do Colégio Imperatriz. Para acesso à Wifi, clique no botão abaixo e insira seu email.
+    </div>
+
     <h2>Login com Google</h2>
     <!-- Botão de login com Google -->
     <div id="g_id_onload"
