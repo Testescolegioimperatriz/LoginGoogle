@@ -67,7 +67,7 @@
     <!-- Botão de login com Google -->
     <div id="g_id_onload"
         data-client_id="677749579253-uifdjo8pkgh3do2okvibete7gb96c6jp.apps.googleusercontent.com"
-        data-login_uri="YOUR_REDIRECT_URL"
+        data-login_uri="https://testescolegioimperatriz.github.io" 
         data-auto_prompt="false">
     </div>
     <div class="g_id_signin" data-type="standard" data-theme="outline" data-text="sign_in_with" data-shape="rectangular"></div>
@@ -85,7 +85,7 @@
 
         google.accounts.id.renderButton(
             document.querySelector(".g_id_signin"),
-            { theme: "outline", size: "large", text: "signin_with" }
+            { theme: "outline", size: "large", text: "signin_with" } // Personalize o botão aqui
         );
     };
 
@@ -93,6 +93,14 @@
     function handleCredentialResponse(response) {
         console.log("Login bem-sucedido!");
         console.log("Credenciais:", response.credential);
+
+        // Aqui você pode enviar o token para o seu servidor para validação ou obter informações adicionais sobre o usuário.
+        // Exemplo:
+        // fetch('/sua-rota-de-login', {
+        //     method: 'POST',
+        //     body: JSON.stringify({ token: response.credential }),
+        //     headers: { 'Content-Type': 'application/json' }
+        // }).then(res => res.json()).then(data => console.log(data));
     }
 </script>
 
