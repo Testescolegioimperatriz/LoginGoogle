@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login com Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .google-btn {
+            display: inline-block;
+            background-color: #4285F4;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .google-btn:hover {
+            background-color: #357ae8;
+        }
+
+        .google-btn:active {
+            background-color: #3367D6;
+        }
+
+        .google-btn img {
+            width: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login com Google</h2>
+    <!-- Botão de login com Google -->
+    <div id="g_id_onload"
+        data-client_id="677749579253-uifdjo8pkgh3do2okvibete7gb96c6jp.apps.googleusercontent.com"
+        data-login_uri="YOUR_REDIRECT_URL"
+        data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin" data-type="standard" data-theme="outline" data-text="sign_in_with" data-shape="rectangular"></div>
+</div>
+
+<!-- Carregar a API de autenticação do Google -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script>
+    window.onload = function () {
+        google.accounts.id.initialize({
+            client_id: "677749579253-uifdjo8pkgh3do2okvibete7gb96c6jp.apps.googleusercontent.com", // Substitua pelo seu CLIENT_ID
+            callback: handleCredentialResponse
+        });
+
+        google.accounts.id.renderButton(
+            document.querySelector(".g_id_signin"),
+            { theme: "outline", size: "large", text: "signin_with" }
+        );
+    };
+
+    // Função de callback que será chamada após o login bem-sucedido
+    function handleCredentialResponse(response) {
+        console.log("Login bem-sucedido!");
+        console.log("Credenciais:", response.credential);
+    }
+</script>
+
+</body>
+</html>
